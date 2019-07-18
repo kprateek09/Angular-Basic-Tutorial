@@ -1,6 +1,26 @@
 <h2>Products</h2>
 
+<div *ngFor = "let products of products">
+  <h3>
+    <a [title] = " products.name  + 'details'">
+      {{ products.name }}
+    </a>
+  </h3>
 
+  <p *ngIf = " products.description ">
+    Description : {{ products.description }}
+  </p>
+
+  <button (click) = "share()">
+    Share
+  </button>
+
+  <app-product-alerts
+  [products]="products"
+  (notify) = "onNotify()" >
+  </app-product-alerts>
+
+</div>
 <!-- 
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
