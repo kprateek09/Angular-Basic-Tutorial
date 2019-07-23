@@ -8,8 +8,9 @@
   <span>{{item.name}}</span>
   <span>{{item.price|currency}}</span>
 </div>
-
-
+<p>
+<button (click) = "clearTheCart()">Clear Cart</button>
+</p>
 <form [formGroup] = "checkOutForm" (ngSubmit) = "onSubmit(checkOutForm.value)">
   
   <div>
