@@ -27,7 +27,7 @@ export class ProductListComponent {
 
   addToCart(product)
   {
-    window.alert(product.name+" has been added to the cart");
+    //window.alert(product.name+" has been added to the cart");
     this.cartService.addTocart(product);
   }
 

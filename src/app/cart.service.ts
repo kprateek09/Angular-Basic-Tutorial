@@ -18,6 +18,10 @@ export class CartService {
     this.items.push(products);
   }
 
+  removeFromCart(){
+    this.items.pop();
+  }
+
   getItems() {
     return this.items;
   }

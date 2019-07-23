@@ -1,7 +1,8 @@
 <h3>Cart</h3>
 
 <p>
-  <a routerLink = "/shipping">Shipping Prices</a>
+  <a routerLink = "/shipping">Shipping Prices</a></p><p>
+  <a [routerLink]="['/']">Refresh</a>
 </p>
 
 <div class = "cart-item" *ngFor = "let item of items">
@@ -11,6 +12,11 @@
 <p>
 <button (click) = "clearTheCart()">Clear Cart</button>
 </p>
+<p>
+<button (click) = "removeLastItem()">Remove Last Item</button>
+</p>
+
+
 <form [formGroup] = "checkOutForm" (ngSubmit) = "onSubmit(checkOutForm.value)">
   
   <div>
