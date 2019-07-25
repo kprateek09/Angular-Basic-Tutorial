@@ -8,10 +8,10 @@
   <span>{{item.name}}</span>
   <span>{{item.price|currency}}</span>
 </div>
-<p>
+<p *ngIf="items.length>0">
 <button (click) = "clearTheCart()">Clear Cart</button>
 </p>
-<p>
+<p *ngIf="items.length > 1">
 <button (click) = "removeLastItem()">Remove Last Item</button>
 </p>
 
