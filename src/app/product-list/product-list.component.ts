@@ -29,6 +29,8 @@ export class ProductListComponent {
   {
     //window.alert(product.name+" has been added to the cart");
     this.cartService.addTocart(product);
+    this.cartService.addPriceToCart(product.price);
+    //window.alert(product.price);
   }
 
 }

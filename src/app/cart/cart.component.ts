@@ -12,6 +12,7 @@ export class CartComponent implements OnInit {
 
   items;
   checkOutForm;
+  totalPrice;
 
   constructor(
     private cartService: CartService,
@@ -19,6 +20,9 @@ export class CartComponent implements OnInit {
     private router: Router,
   ) {
       this.items = this.cartService.getItems();
+
+      this.totalPrice = this.cartService.getPrice();
+
       this.checkOutForm = this.formBuilder.group(
         {
           name : '',

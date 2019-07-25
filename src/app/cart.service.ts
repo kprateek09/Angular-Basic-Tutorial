@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class CartService {
 
   items = [];
+  amount=0;
 
   constructor(
     private http: HttpClient
@@ -18,12 +19,20 @@ export class CartService {
     this.items.push(products);
   }
 
+  addPriceToCart(price) {
+    this.amount += price;
+  }
+
   removeFromCart(){
     this.items.pop();
   }
 
   getItems() {
     return this.items;
+  }
+
+  getPrice()  {
+    return this.amount;
   }
 
   clearCart() {

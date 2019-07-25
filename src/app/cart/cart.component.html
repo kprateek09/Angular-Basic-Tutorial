@@ -4,17 +4,24 @@
   <a routerLink = "/shipping">Shipping Prices</a></p><p>
 </p>
 
-<div class = "cart-item" *ngFor = "let item of items">
+<div class = "cart-item" *ngFor = "let item of items" >
   <span>{{item.name}}</span>
   <span>{{item.price|currency}}</span>
+  <span *ngIf="item.type">
+    {{item.type}}
+    {{item.priceToShip|currency}}
+  </span>
 </div>
+
 <p *ngIf="items.length>0">
 <button (click) = "clearTheCart()">Clear Cart</button>
 </p>
+
 <p *ngIf="items.length > 1">
 <button (click) = "removeLastItem()">Remove Last Item</button>
 </p>
 
+<h3 style="color:#1976d2"> Cart Amount : {{totalPrice}}</h3>
 
 <form [formGroup] = "checkOutForm" (ngSubmit) = "onSubmit(checkOutForm.value)">
   
