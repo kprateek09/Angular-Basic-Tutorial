@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
 export class CartService {
 
   items = [];
-  amount=0;
   removedItem:any;
 
   constructor(
@@ -20,9 +19,6 @@ export class CartService {
     this.items.push(products);
   }
 
-  addPriceToCart(price) {
-    this.amount += price;
-  }
 
   removeFromCart(){
     this.removedItem = this.items.pop();
@@ -34,9 +30,6 @@ export class CartService {
     return this.items;
   }
 
-  getPrice()  {
-    return this.amount;
-  }
 
   clearCart() {
     this.items = [];

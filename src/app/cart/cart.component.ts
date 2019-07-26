@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { FormBuilder } from '@angular/forms';
@@ -8,46 +9,41 @@ import { Router } from '@angular/router';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
+@Injectable({
+  providedIn: 'root'
+})
+
 export class CartComponent implements OnInit {
 
   items;
   checkOutForm;
-  static totalPrice;
+  static totalPrice=0;
   static removed;  
-  static count=1;
+  //static count=1;
 
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder,
     private router: Router,
-  ) {
-      this.items = this.cartService.getItems();
-      //console.log(CartComponent.count);
-      if(CartComponent.count==1)  {
-        CartComponent.totalPrice = this.cartService.getPrice();
-        //console.log(CartComponent.totalPrice);
-        CartComponent.count = CartComponent.count - 1;
-      }
-        
-      //console.log(CartComponent.removed);
-      //console.log("It should be displayed only once");
+  ) 
+  {
+    this.items = this.cartService.getItems();
+    //console.log(CartComponent.count);
+    
+    //CartComponent.totalPrice = this.cartService.getPrice();
+    //console.log(CartComponent.totalPrice);
       
-      this.checkOutForm = this.formBuilder.group(
-        {
-          name : '',
-          address : ''
-        }
-      );
-    }
-
-  get data()  {
-    return CartComponent.removed;
-  }  
-
-  get OriginalPrice() {
-    return CartComponent.totalPrice;
-  }
-   
+    //console.log(CartComponent.removed);
+    //console.log("It should be displayed only once");
+    
+    this.checkOutForm = this.formBuilder.group(
+      {
+        name : '',
+        address : ''
+      }
+    );
+  } 
 
   ngOnInit() {
   }
@@ -59,8 +55,12 @@ export class CartComponent implements OnInit {
     this.checkOutForm.reset();
   }
 
+  addPriceToCart(price)  {
+    CartComponent.totalPrice +=  price;
+  }
+
   clearTheCart(){
-    CartComponent.totalPrice = 0;
+    CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.totalPrice;
     this.items = this.cartService.clearCart();
   }
 
@@ -76,11 +76,18 @@ export class CartComponent implements OnInit {
       CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.removed;
     }
     //console.log(CartComponent.totalPrice);
-    this.router.navigate(['/']);
-    await this.delay(0.000001);
-    this.router.navigate(['/cart']);
-    
+    //this.router.navigate(['/']);
+    //await this.delay(0.000001);
+    //this.router.navigate(['/cart']);
+    //return;
   }
   
+  get data()  {
+    return CartComponent.removed;
+  }  
+
+  get OriginalPrice() {
+    return CartComponent.totalPrice;
+  }
 
 }

@@ -4,6 +4,8 @@ import { products } from '../products';
 
 import { CartService } from '../cart.service';
 
+import { CartComponent } from '../cart/cart.component';
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -14,7 +16,8 @@ export class ProductListComponent {
   products = products;
 
   constructor(
-    private cartService: CartService
+    private cartService: CartService,
+    private cartcomp: CartComponent,
   ) {}
 
   share() {
@@ -29,7 +32,7 @@ export class ProductListComponent {
   {
     //window.alert(product.name+" has been added to the cart");
     this.cartService.addTocart(product);
-    this.cartService.addPriceToCart(product.price);
+    this.cartcomp.addPriceToCart(product.price);
     //window.alert(product.price);
   }
 
