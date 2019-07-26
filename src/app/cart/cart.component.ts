@@ -12,7 +12,9 @@ export class CartComponent implements OnInit {
 
   items;
   checkOutForm;
-  totalPrice;
+  static totalPrice;
+  static removed;  
+  static count=1;
 
   constructor(
     private cartService: CartService,
@@ -20,9 +22,16 @@ export class CartComponent implements OnInit {
     private router: Router,
   ) {
       this.items = this.cartService.getItems();
-
-      this.totalPrice = this.cartService.getPrice();
-
+      //console.log(CartComponent.count);
+      if(CartComponent.count==1)  {
+        CartComponent.totalPrice = this.cartService.getPrice();
+        //console.log(CartComponent.totalPrice);
+        CartComponent.count = CartComponent.count - 1;
+      }
+        
+      //console.log(CartComponent.removed);
+      //console.log("It should be displayed only once");
+      
       this.checkOutForm = this.formBuilder.group(
         {
           name : '',
@@ -30,6 +39,14 @@ export class CartComponent implements OnInit {
         }
       );
     }
+
+  get data()  {
+    return CartComponent.removed;
+  }  
+
+  get OriginalPrice() {
+    return CartComponent.totalPrice;
+  }
    
 
   ngOnInit() {
@@ -37,12 +54,13 @@ export class CartComponent implements OnInit {
 
   onSubmit(customerData) {
     console.warn('Your order has been submitted', customerData);
+    CartComponent.totalPrice = 0;
     this.items = this.cartService.clearCart();
     this.checkOutForm.reset();
   }
 
   clearTheCart(){
-    this.totalPrice = 0;
+    CartComponent.totalPrice = 0;
     this.items = this.cartService.clearCart();
   }
 
@@ -51,11 +69,18 @@ export class CartComponent implements OnInit {
   }
 
   async removeLastItem()  {
-    this.items = this.cartService.removeFromCart();
+    CartComponent.removed = this.cartService.removeFromCart();
+    //console.log(CartComponent.removed);
+    if(CartComponent.removed!=undefined) {
+        
+      CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.removed;
+    }
+    //console.log(CartComponent.totalPrice);
     this.router.navigate(['/']);
     await this.delay(0.000001);
     this.router.navigate(['/cart']);
     
   }
+  
 
 }

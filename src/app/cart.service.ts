@@ -8,6 +8,7 @@ export class CartService {
 
   items = [];
   amount=0;
+  removedItem:any;
 
   constructor(
     private http: HttpClient
@@ -24,7 +25,9 @@ export class CartService {
   }
 
   removeFromCart(){
-    this.items.pop();
+    this.removedItem = this.items.pop();
+    //console.log(this.removedItem.price);
+    return this.removedItem.price;
   }
 
   getItems() {
