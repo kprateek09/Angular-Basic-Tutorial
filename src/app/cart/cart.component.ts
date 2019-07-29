@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
   static removed;  
   //static count=1;
 
-  static flag:number;
+  //static flag:number;
 
   constructor(
     private cartService: CartService,
@@ -57,19 +57,19 @@ export class CartComponent implements OnInit {
     this.checkOutForm.reset();
   }
 
-  addPriceToCart(price, val?:number)  {
+  addPriceToCart(price)  {
     //console.log(val);
     CartComponent.totalPrice +=  price;
-    if(val!=undefined)  {
+    /*if(val!=undefined)  {
       CartComponent.flag = 1;
-    }
+    }*/
     //console.log(CartComponent.flag);
   }
 
   clearTheCart(){
     CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.totalPrice;
     this.items = this.cartService.clearCart();
-    CartComponent.flag = 0;
+    //CartComponent.flag = 0;
   }
 
   private delay(ms: number) {
@@ -89,9 +89,9 @@ export class CartComponent implements OnInit {
     //this.router.navigate(['/cart']);
     //return;
 
-    if(CartComponent.removed == 5.00 || CartComponent.removed == 3.00 || CartComponent.removed == 1.00 ) {
+    /*if(CartComponent.removed == 5.00 || CartComponent.removed == 3.00 || CartComponent.removed == 1.00 ) {
       CartComponent.flag = 0;
-    }
+    }*/
 
   }
   
@@ -103,8 +103,8 @@ export class CartComponent implements OnInit {
     return CartComponent.totalPrice;
   }
 
-  get flagValue() {
+  /*get flagValue() {
     return CartComponent.flag;
-  }
+  }*/
 
 }

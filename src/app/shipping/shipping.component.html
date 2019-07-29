@@ -4,7 +4,7 @@
 <div class = " shipping-item " *ngFor = " let shipp of shippingCosts | async">
   <span>{{shipp.type}}</span>
   <span>{{shipp.price | currency}}</span>
-  <button (click) ="addToCart(shipp)">
+  <button [disabled]="theValueOfFlag" (click) ="addToCart(shipp)">
     Choose
   </button>
 </div>
