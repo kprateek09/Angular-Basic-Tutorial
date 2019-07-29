@@ -11,6 +11,7 @@ import { CartComponent } from '../cart/cart.component';
 export class ShippingComponent implements OnInit {
 
   shippingCosts:any;
+  flag_val = 1;
 
   constructor(
     private cartService:CartService,
@@ -26,7 +27,8 @@ export class ShippingComponent implements OnInit {
   addToCart(shippingData) {
     this.cartService.addTocart(shippingData);
     //console.log(shippingData.price);
-    this.cartcomp.addPriceToCart(shippingData.price);
+    this.cartcomp.addPriceToCart(shippingData.price,this.flag_val);
+    //console.log(this.flag_val);
   }
 
 
