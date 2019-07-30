@@ -6,5 +6,10 @@
   <p>{{products.description}}</p>
 
   <button (click) = "addToCart(products)">Buy</button>
-
 </div>
+
+<p *ngIf = "flag==1" >
+  <button (click) = "router.navigate(['/cart']);">
+    Go To Cart
+  </button>
+</p>
