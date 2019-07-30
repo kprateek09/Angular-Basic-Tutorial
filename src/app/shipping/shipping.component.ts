@@ -13,6 +13,7 @@ export class ShippingComponent implements OnInit {
   shippingCosts:any;
   //flag_val = 1;
   static flag_val = false;
+  finalPrice;
 
   constructor(
     private cartService:CartService,
@@ -31,6 +32,8 @@ export class ShippingComponent implements OnInit {
     this.cartcomp.addPriceToCart(shippingData.price);
     //console.log(this.flag_val);
     ShippingComponent.flag_val = true;
+    this.finalPrice = this.cartcomp.OriginalPrice;
+
   }
 
   get theValueOfFlag()  {

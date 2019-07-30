@@ -39,23 +39,12 @@ export class CartComponent implements OnInit {
     //console.log(CartComponent.removed);
     //console.log("It should be displayed only once");
     
-    this.checkOutForm = this.formBuilder.group(
-      {
-        name : '',
-        address : ''
-      }
-    );
+   
   } 
 
   ngOnInit() {
   }
 
-  onSubmit(customerData) {
-    console.warn('Your order has been submitted', customerData);
-    CartComponent.totalPrice = 0;
-    this.items = this.cartService.clearCart();
-    this.checkOutForm.reset();
-  }
 
   addPriceToCart(price)  {
     //console.log(val);

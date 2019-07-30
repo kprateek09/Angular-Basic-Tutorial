@@ -1,12 +1,10 @@
-<h3>Cart</h3>
+<h3>
+  Cart
+</h3>
 <!--Removed : {{data}}
 Price : {{OriginalPrice}}-->
 
 <!--{{flagValue}}-->
-
-<p>
-  <a routerLink = "/shipping">Shipping Prices</a></p><p>
-</p>
 
 <div class = "cart-item" *ngFor = "let item of items" >
   <span>{{item.name}}</span>
@@ -27,22 +25,7 @@ Price : {{OriginalPrice}}-->
 
 <h3 style="color:#1976d2"> Cart Amount : {{ OriginalPrice| currency }}</h3>
 
-<form [formGroup] = "checkOutForm" (ngSubmit) = "onSubmit(checkOutForm.value)">
-  
-  <div>
-    <label for = "name">
-      Name
-    </label>
-    <input id = "name" type = "text" formControlName = "name">
-  </div>
 
-  <div>
-    <label for = "address">
-      Address
-    </label>
-    <input id = "address" type = "text" formControlName = "address">
-  </div>
-  <p>
-    <button class = "button" type = "submit">Purchase</button>
-  </p>
-</form>
+<!-- <h3> 
+  <a [routerLink]="['/shipping']">Shipping Details</a>
+</h3> -->
