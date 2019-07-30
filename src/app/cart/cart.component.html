@@ -30,7 +30,6 @@ Price : {{OriginalPrice}}-->
   <a [routerLink]="['/shipping']">Shipping Details</a>
 </h3> -->
 
-<a [routerLink]="['/shipping']" class="button fancy-button">
-  <i class="material-icons">shopping_cart</i>
-  Shipping
-</a>
+<button (click) = "router.navigate(['/shipping']);">
+    Shipping
+  </button>

@@ -19,6 +19,7 @@ export class ShippingComponent implements OnInit {
   constructor(
     private cartService:CartService,
     private cartcomp: CartComponent,
+    private router: Router,
   ) 
   {
     this.shippingCosts = this.cartService.getShippingPrices();
