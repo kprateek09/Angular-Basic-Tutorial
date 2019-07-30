@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 
 import { CartComponent } from '../cart/cart.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shipping',
