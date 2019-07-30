@@ -13,7 +13,7 @@
 
 <h3>Shipping Prices</h3>
 
-
+<span *ngIf = "flagg==0">
 <div class = " shipping-item " *ngFor = " let shipp of shippingCosts | async">
   <span>{{shipp.type}}</span>
   <span>{{shipp.price | currency}}</span>
@@ -21,6 +21,7 @@
     Choose
   </button>
 </div>
+</span>
 
 <button (click) = "changeShippingType()">Change Shipping Type</button>
 

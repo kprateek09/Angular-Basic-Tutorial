@@ -23,6 +23,7 @@ export class ShippingComponent implements OnInit {
   checkOutForm;
   items;
   price;
+  flagg=0;
 
   constructor(
 
@@ -83,6 +84,8 @@ export class ShippingComponent implements OnInit {
     CartComponent.totalPrice = 0;
     this.items = this.cartService.clearCart();
     this.checkOutForm.reset();
+    this.flagg = 1;
+
    
   }
 
