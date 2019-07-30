@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 
+import { FormBuilder } from '@angular/forms';
+
 import { CartComponent } from '../cart/cart.component';
 import { Router } from '@angular/router';
 
@@ -18,7 +20,14 @@ export class ShippingComponent implements OnInit {
   static shippingType;
   static shippingPrice;
 
+  checkOutForm;
+  items;
+  price;
+
   constructor(
+
+    private formBuilder: FormBuilder,
+
     private cartService:CartService,
     private cartcomp: CartComponent,
     private router: Router,
@@ -26,6 +35,19 @@ export class ShippingComponent implements OnInit {
   ) 
   {
     this.shippingCosts = this.cartService.getShippingPrices();
+
+    this.items = this.cartService.getItems();
+
+    //this.price = CartComponent.totalPrice + ShippingComponent.shippingPrice;
+
+
+    this.checkOutForm = this.formBuilder.group(
+      {
+        name : '',
+        address : ''
+      }
+    );
+
   }
 
   ngOnInit() {
@@ -53,6 +75,17 @@ export class ShippingComponent implements OnInit {
   get theValueOfFlag()  {
     return ShippingComponent.flag_val;
   }
+
+
+   onSubmit(customerData) {
+    console.warn('Your order has been submitted', customerData);
+    this.finalPrice = 0;
+    CartComponent.totalPrice = 0;
+    this.items = this.cartService.clearCart();
+    this.checkOutForm.reset();
+   
+  }
+
 
 
 }
