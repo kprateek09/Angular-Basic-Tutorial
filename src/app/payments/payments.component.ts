@@ -17,6 +17,7 @@ export class PaymentsComponent implements OnInit {
   items;
   price;
 
+
   constructor(
     private formBuilder: FormBuilder,
     
@@ -29,6 +30,7 @@ export class PaymentsComponent implements OnInit {
     this.items = this.cartService.getItems();
 
     this.price = CartComponent.totalPrice;
+
 
     this.checkOutForm = this.formBuilder.group(
       {
