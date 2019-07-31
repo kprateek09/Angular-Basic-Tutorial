@@ -56,9 +56,11 @@ export class CartComponent implements OnInit {
   }
 
   clearTheCart(){
-    CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.totalPrice;
-    this.items = this.cartService.clearCart();
-    //CartComponent.flag = 0;
+    if(window.confirm('Are you sure to clear the cart?')) {
+      CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.totalPrice;
+      this.items = this.cartService.clearCart();
+      //CartComponent.flag = 0;
+    }
   }
 
   private delay(ms: number) {
@@ -66,22 +68,23 @@ export class CartComponent implements OnInit {
   }
 
   async removeLastItem()  {
-    CartComponent.removed = this.cartService.removeFromCart();
-    //console.log(CartComponent.removed);
-    if(CartComponent.removed!=undefined) {
-        
-      CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.removed;
+    if(window.confirm('Are you sure to remove the last item?')) {
+      CartComponent.removed = this.cartService.removeFromCart();
+      //console.log(CartComponent.removed);
+      if(CartComponent.removed!=undefined) {
+          
+        CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.removed;
+      }
+      //console.log(CartComponent.totalPrice);
+      //this.router.navigate(['/']);
+      //await this.delay(0.000001);
+      //this.router.navigate(['/cart']);
+      //return;
+
+      /*if(CartComponent.removed == 5.00 || CartComponent.removed == 3.00 || CartComponent.removed == 1.00 ) {
+        CartComponent.flag = 0;
+      }*/
     }
-    //console.log(CartComponent.totalPrice);
-    //this.router.navigate(['/']);
-    //await this.delay(0.000001);
-    //this.router.navigate(['/cart']);
-    //return;
-
-    /*if(CartComponent.removed == 5.00 || CartComponent.removed == 3.00 || CartComponent.removed == 1.00 ) {
-      CartComponent.flag = 0;
-    }*/
-
   }
   
   get data()  {

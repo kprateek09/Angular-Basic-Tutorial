@@ -28,13 +28,13 @@ export class ProductListComponent {
     window.alert("You will be notified when the product goes on sale!");
   }
 
-  addToCart(product)
+  /* addToCart(product)
   {
     //window.alert(product.name+" has been added to the cart");
     this.cartService.addTocart(product);
     this.cartcomp.addPriceToCart(product.price);
     //window.alert(product.price);
-  }
+  } */
 
 }
 
