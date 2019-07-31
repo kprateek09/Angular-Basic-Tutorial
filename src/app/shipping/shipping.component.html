@@ -52,3 +52,9 @@
     <button class = "button" type = "submit">Purchase</button>
   </p>
 </form> 
+
+<div *ngIf = "flag==1">
+  <button (click) = "router.navigate(['/']);">
+    Continue Shopping
+  </button>
+</div>
