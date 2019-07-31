@@ -81,6 +81,8 @@ export class ShippingComponent implements OnInit {
 
    onSubmit(customerData) {
     console.warn('Your order has been submitted', customerData);
+    //console.log(customerData.name);
+    //console.log(customerData.address);
     this.finalPrice = 0;
     CartComponent.totalPrice = 0;
     this.items = this.cartService.clearCart();

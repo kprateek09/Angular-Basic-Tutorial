@@ -9,10 +9,10 @@ Price : {{OriginalPrice}}-->
 <div class = "cart-item" *ngFor = "let item of items" >
   <span>{{item.name}}</span>
   <span>{{item.price|currency}}</span>
-  <span *ngIf="item.type">
+  <!-- <span *ngIf="item.type">
     {{item.type}}
     {{item.priceToShip|currency}}
-  </span>
+  </span> -->
 </div>
 
 <p *ngIf="OriginalPrice>0">
@@ -22,14 +22,21 @@ Price : {{OriginalPrice}}-->
 <p *ngIf="items.length > 1">
 <button (click) = "removeLastItem()">Remove Last Item</button>
 </p>
+<div *ngIf = "items.length>0">
+  <h3 style="color:#1976d2"> Cart Amount : {{ OriginalPrice| currency }}</h3>
 
-<h3 style="color:#1976d2"> Cart Amount : {{ OriginalPrice| currency }}</h3>
+  <!-- <h3> 
+    <a [routerLink]="['/shipping']">Shipping Details</a>
+  </h3> -->
 
+  <button (click) = "router.navigate(['/shipping']);">
+    Shipping
+  </button>
+</div>
 
-<!-- <h3> 
-  <a [routerLink]="['/shipping']">Shipping Details</a>
-</h3> -->
-
-<button (click) = "router.navigate(['/shipping']);">
-  Shipping
-</button>
+<div *ngIf ="items.length==0">
+  <h3>It's looks empty.., Lets do some shopping..!!</h3>
+  <button (click) = "router.navigate(['/']);">
+    Take me to see some cool stuffs..!!
+  </button>
+</div>
