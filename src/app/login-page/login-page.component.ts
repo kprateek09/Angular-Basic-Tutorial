@@ -41,7 +41,7 @@ export class LoginPageComponent implements OnInit {
       window.alert("Please fill in the details!");
     }
     else  {
-      console.warn('Your order has been submitted', loginData);
+      console.warn('Your have sucessfully logged in!', loginData);
       //console.log(loginData.username);
       //console.log(loginData.password);
       this.router.navigate(['/productlist']);
