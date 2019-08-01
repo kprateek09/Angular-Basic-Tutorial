@@ -2,12 +2,20 @@
   <h1>My Store</h1>
 </a>
 
-<h3 style="color:white; padding:8px; margin:0" >Welcome  {{name}}</h3>
-
 <a [routerLink]="['/cart']" class="button fancy-button">
   <i class="material-icons">shopping_cart</i>
   Checkout
 </a>
+
+<div *ngIf = "flagValue==1">
+  <h3 style="color:white; padding:8px; margin:0" >Welcome  {{name}}</h3>
+</div>
+
+<div *ngIf = "flagValue==0">
+  <a [routerLink]="['/']">
+    <h3 style="color:white; padding:8px; margin:0" >Login</h3>
+  </a>
+</div>
 
 
 

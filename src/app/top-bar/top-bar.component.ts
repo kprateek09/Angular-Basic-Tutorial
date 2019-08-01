@@ -14,6 +14,7 @@ import { Injectable } from '@angular/core';
 export class TopBarComponent implements OnInit {
 
   static nameToDisplay;
+  static flag = 0;
 
   constructor(
   ) 
@@ -26,6 +27,10 @@ export class TopBarComponent implements OnInit {
 
   get name()  {
     return TopBarComponent.nameToDisplay;
+  }
+
+  get flagValue() {
+    return TopBarComponent.flag;
   }
 
 }
