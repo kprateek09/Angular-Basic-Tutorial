@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-
 import { Router } from '@angular/router';
 import {TopBarComponent} from '../top-bar/top-bar.component';
 
@@ -9,8 +8,6 @@ import {TopBarComponent} from '../top-bar/top-bar.component';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-
-
 
 export class LoginPageComponent implements OnInit {
 
