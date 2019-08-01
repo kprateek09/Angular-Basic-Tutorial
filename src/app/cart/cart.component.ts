@@ -55,11 +55,19 @@ export class CartComponent implements OnInit {
     //console.log(CartComponent.flag);
   }
 
-  clearTheCart(){
-    if(window.confirm('Are you sure to clear the cart?')) {
-      CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.totalPrice;
-      this.items = this.cartService.clearCart();
-      //CartComponent.flag = 0;
+  clearTheCart(value){
+    if(value==0)  {
+      if(window.confirm('Are you sure to clear the cart?')) {
+        CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.totalPrice;
+        this.items = this.cartService.clearCart();
+        //CartComponent.flag = 0;
+      }
+    }
+    else  {
+      if(window.confirm('Are you sure to Log Out?')) {
+        CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.totalPrice;
+        this.items = this.cartService.clearCart();
+      }
     }
   }
 

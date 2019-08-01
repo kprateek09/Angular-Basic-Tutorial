@@ -16,7 +16,7 @@ Price : {{OriginalPrice}}-->
 </div>
 
 <p *ngIf="OriginalPrice>0">
-<button (click) = "clearTheCart()">Clear Cart</button>
+<button (click) = "clearTheCart(0)">Clear Cart</button>
 </p>
 
 <p *ngIf="items.length > 1">

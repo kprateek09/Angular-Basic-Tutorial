@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { CartComponent } from '../cart/cart.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-bar',
@@ -17,10 +19,9 @@ export class TopBarComponent implements OnInit {
   static flag = 0;
 
   constructor(
-  ) 
-  { 
-    
-  }
+    private cartcomponent: CartComponent,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
   }
@@ -31,6 +32,13 @@ export class TopBarComponent implements OnInit {
 
   get flagValue() {
     return TopBarComponent.flag;
+  }
+
+  logOut()  {
+    this.cartcomponent.clearTheCart(1);
+    this.router.navigate(['/']);
+    TopBarComponent.nameToDisplay = undefined;
+    TopBarComponent.flag = 0;
   }
 
 }

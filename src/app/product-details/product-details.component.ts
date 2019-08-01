@@ -41,7 +41,7 @@ export class ProductDetailsComponent implements OnInit {
       this.cartcomp.addPriceToCart(product.price);
     }
     else  {
-      window.alert("Please LogIn to make add products to the cart!");
+      window.alert("Please LogIn to add products to the cart!");
       this.router.navigate(['/']);
 
     }

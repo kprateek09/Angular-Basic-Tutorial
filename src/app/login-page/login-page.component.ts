@@ -32,19 +32,24 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  getPassword() {
-
+  showPassword() {
+    this.loginForm.username = 'thisAcceptsAnything';
   }
 
   onSubmit(loginData) {
-    console.warn('Your order has been submitted', loginData);
-    //console.log(loginData.username);
-    //console.log(loginData.password);
-    this.router.navigate(['/productlist']);
-    this.loginId = loginData.username;
-    this.pass = loginData.password;
-    TopBarComponent.nameToDisplay = loginData.username;
-    TopBarComponent.flag = 1;
+    if(loginData.username == '' || loginData.password == '' || loginData.username == undefined || loginData.password == undefined )  {
+      window.alert("Please fill in the details!");
+    }
+    else  {
+      console.warn('Your order has been submitted', loginData);
+      //console.log(loginData.username);
+      //console.log(loginData.password);
+      this.router.navigate(['/productlist']);
+      this.loginId = loginData.username;
+      this.pass = loginData.password;
+      TopBarComponent.nameToDisplay = loginData.username;
+      TopBarComponent.flag = 1;
+    }
   }
 
 }
