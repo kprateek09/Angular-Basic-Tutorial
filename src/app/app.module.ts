@@ -13,6 +13,7 @@ import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },
       { path: '', component: LoginPageComponent },
+      { path: 'forgotpassword', component: ForgotPasswordComponent },
     ])
   ],
   declarations: [
@@ -36,6 +38,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     CartComponent,
     ShippingComponent,
     LoginPageComponent,
+    ForgotPasswordComponent,
   ],
   bootstrap: [ AppComponent ],
   providers: [CartService]

@@ -27,6 +27,11 @@ export class LoginPageComponent implements OnInit {
         password : ''
       }
     );
+    //this.loginForm.username.setValue('kunal');
+  }
+
+  updateValue() {
+    this.loginForm.username.setValue('Kunal');
   }
 
   ngOnInit() {
