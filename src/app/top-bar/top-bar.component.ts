@@ -17,6 +17,7 @@ export class TopBarComponent implements OnInit {
 
   static nameToDisplay;
   static flag = 0;
+  result;
 
   constructor(
     private cartcomponent: CartComponent,
@@ -35,10 +36,12 @@ export class TopBarComponent implements OnInit {
   }
 
   logOut()  {
-    this.cartcomponent.clearTheCart(1);
-    this.router.navigate(['/']);
-    TopBarComponent.nameToDisplay = undefined;
-    TopBarComponent.flag = 0;
+    this.result = this.cartcomponent.clearTheCart(1);
+    if(this.result == 1)  {
+      this.router.navigate(['/']);
+      TopBarComponent.nameToDisplay = undefined;
+      TopBarComponent.flag = 0;
+    }
   }
 
 }

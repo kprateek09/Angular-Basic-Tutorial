@@ -20,6 +20,8 @@ export class CartComponent implements OnInit {
   checkOutForm;
   static totalPrice=0;
   static removed;  
+  check;
+  numToReturn = 0;
   //static count=1;
 
   //static flag:number;
@@ -55,20 +57,26 @@ export class CartComponent implements OnInit {
     //console.log(CartComponent.flag);
   }
 
-  clearTheCart(value){
+  clearTheCart(value): number{
     if(value==0)  {
-      if(window.confirm('Are you sure to clear the cart?')) {
+      if(window.confirm('Are you sure to clear the cart?')== true) {
         CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.totalPrice;
         this.items = this.cartService.clearCart();
         //CartComponent.flag = 0;
       }
+        // this.check = window.confirm("Sure to clear cart?");
+        // console.log(this.check);
+
     }
-    else  {
-      if(window.confirm('Are you sure to Log Out?')) {
+    else if(value==1) {
+      this.check = window.confirm("Sure to Log Out?");
+      if(this.check== true) {
+        this.numToReturn = 1;
         CartComponent.totalPrice = CartComponent.totalPrice - CartComponent.totalPrice;
         this.items = this.cartService.clearCart();
       }
     }
+    return this.numToReturn;
   }
 
   private delay(ms: number) {
