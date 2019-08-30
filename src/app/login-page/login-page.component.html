@@ -1,19 +1,19 @@
 <p></p>
 
-<form [formGroup] = "loginForm" (ngSubmit) = "onSubmit(loginForm.value)">
+<form [formGroup] = "loginForm" (ngSubmit) = "onSubmit(loginForm.value)" ngNativeValidate>
   
   <div>
     <label for = "username">
       Username
     </label>
-    <input id = "username" type = "text" formControlName = "username">
+    <input id = "username" type = "text" formControlName = "username" required>
   </div>
 
   <div>
     <label for = "password">
       Password
     </label>
-    <input id = "password" type = "password" formControlName = "password">
+    <input id = "password" type = "password" formControlName = "password" required>
   </div>
 
   <!-- <button (click)="showPassword()">
@@ -31,4 +31,7 @@
   <p>
     <button class = "button" type = "submit">Login</button>
   </p>
+
+  <!-- <input type = "submit" value = "Submit"> -->
+
 </form> 

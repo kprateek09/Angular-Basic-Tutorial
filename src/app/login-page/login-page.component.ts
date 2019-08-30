@@ -42,10 +42,10 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit(loginData) {
-    if(loginData.username == '' || loginData.password == '' || loginData.username == undefined || loginData.password == undefined )  {
-      window.alert("Please fill in the details!");
-    }
-    else  {
+    // if(loginData.username == '' || loginData.password == '' || loginData.username == undefined || loginData.password == undefined )  {
+    //   window.alert("Please fill in the details!");
+    // }
+    // else  {
       console.warn('Your have sucessfully logged in!', loginData);
       //console.log(loginData.username);
       //console.log(loginData.password);
@@ -54,7 +54,7 @@ export class LoginPageComponent implements OnInit {
       this.pass = loginData.password;
       TopBarComponent.nameToDisplay = loginData.username;
       TopBarComponent.flag = 1;
-    }
+    //}
   }
 
 }
